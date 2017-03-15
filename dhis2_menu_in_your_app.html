@@ -1,0 +1,47 @@
+<html>
+<head>
+<!-- (Pooben 15/03/2017) - This the minimum code you would need to include on you apps main page or pages in order to display the DHIS2 Menu bar 
+		with the menus and profile info icons -->
+		
+	<meta charset="UTF-8">
+    <meta name="theme-color" content="#780000" />
+	<title>DHIS 2 App</title>
+	<!-- DHIS stylesheets required for MENU-->
+	<link type="text/css" rel="stylesheet" href="../../../dhis-web-commons/font-awesome/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" media="screen" href="../../../dhis-web-commons/css/menu.css"> 
+    
+	
+
+</head>
+<body>
+<script type="text/javascript">
+<!-- DHIS2 Settings initialization for a baseUrl that is used for the menu -->
+    window.dhis2 = window.dhis2 || {};
+    dhis2.settings = dhis2.settings || {};
+    dhis2.settings.baseUrl = '../';
+
+    var urlArray = window.location.pathname.split('/');
+    var apiIndex = urlArray.indexOf('api');
+
+    if (apiIndex > 1) {
+        dhis2.settings.baseUrl = urlArray[apiIndex - 1];
+    } else {
+        dhis2.settings.baseUrl = '';
+    }
+    
+</script>
+<div id="header" style="background:#276696;overflow: auto">
+  <div id="dhisDropDownMenu" ></div>
+</div>
+
+<!-- DHIS script libraries -->
+	<script type="text/javascript" src="../../../dhis-web-commons/javascripts/jQuery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.translate.js"></script>
+	<script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.util.js"></script>
+	<!-- DHIS2 Menu dependency scripts -->
+	<script type="text/javascript" src="../../../dhis-web-commons/javascripts/jQuery/ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.js"></script>
+	<script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js"></script>
+  <!-- // End menu -->
+</body>
+</html>
